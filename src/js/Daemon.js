@@ -4,7 +4,7 @@ export default class Daemon extends Character { // eslint-disable-line no-unused
   constructor(name = '', type = 'Daemon') {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Недопустимая длина имени!');
-    } if (!type) {
+    } if (type !== 'Daemon' || type === '') {
       throw new Error('Неверный тип игрока!');
     }
     super(name, type);

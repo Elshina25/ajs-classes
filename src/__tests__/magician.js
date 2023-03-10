@@ -11,3 +11,23 @@ test('create personage', () => {
     defence: 40,
   });
 });
+
+test('less name symbols', () => {
+  const magician = new Magician('a', 'Magician');
+  expect(magician.name.length).toBeGreaterThan(1);
+});
+
+test('more name symbols', () => {
+  const magician = new Magician('djdordmalscqr', 'Magician');
+  expect(magician.name.length).toBeLessThan(11);
+});
+
+test('check type error of personage', () => {
+  const magician = new Magician('Alex', 'Zombie');
+  expect(magician.type).toBe('Magician');
+})
+
+test('check empty type', () => {
+  const magician = new Magician('Alex', '');
+  expect(magician.type).not.toBe('');
+})
