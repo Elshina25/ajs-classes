@@ -1,13 +1,11 @@
 import Character from './Character';
 
-class Swordsman extends Character { // eslint-disable-line no-unused-vars
+export default class Swordsman extends Character { // eslint-disable-line no-unused-vars
   constructor(name = '', type = 'Swordsman') {
     if (name.length < 2 || name.length > 10) {
-      throw new Error('Некорректное количество символов!');
-    } if (!name) {
-      throw new Error('Имя не задано!');
+      throw new Error('Недопустимая длина имени!');
     } if (!type) {
-      throw new Error('Выберите тип персонажа!');
+      throw new Error('Неверный тип игрока!');
     }
     super(name, type);
     this.health = 100;
