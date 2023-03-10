@@ -6,7 +6,7 @@ export default class Magician extends Character { // eslint-disable-line no-unus
       throw new Error('Недопустимая длина имени!');
     } if (type !== 'Magician' || type === '') {
       throw new Error('Неверный тип игрока!');
-    }
+    };
     super(name, type);
     this.health = 100;
     this.level = 1;

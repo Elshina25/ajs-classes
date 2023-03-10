@@ -4,9 +4,9 @@ export default class Swordsman extends Character { // eslint-disable-line no-unu
   constructor(name = '', type = 'Swordsman') {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Недопустимая длина имени!');
-    } if (!type) {
+    } if (type !== 'Swordsman' || type === '') {
       throw new Error('Неверный тип игрока!');
-    }
+    };
     super(name, type);
     this.health = 100;
     this.level = 1;
