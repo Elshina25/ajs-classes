@@ -13,21 +13,19 @@ test('create personage', () => {
 });
 
 test('less name symbols', () => {
-  const magician = new Magician('a', 'Magician');
-  expect(magician.name.length).toBeGreaterThan(1);
+  expect(() => {
+    const magician = new Magician('a', 'Magician'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть короче 2 символов!');
 });
 
 test('more name symbols', () => {
-  const magician = new Magician('djdordmalscqr', 'Magician');
-  expect(magician.name.length).toBeLessThan(11);
+  expect(() => {
+    const magician = new Magician('djdordmalscqr', 'Magician'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть длиннее 10 символов!');
 });
 
 test('check type error of personage', () => {
-  const magician = new Magician('Alex', 'Zombie');
-  expect(magician.type).toBe('Magician');
-})
-
-test('check empty type', () => {
-  const magician = new Magician('Alex', '');
-  expect(magician.type).not.toBe('');
-})
+  expect(() => {
+    const magician = new Magician('Alex', 'Zombie'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Неверный тип игрока!');
+});

@@ -11,3 +11,21 @@ test('create personage', () => {
     defence: 25,
   });
 });
+
+test('less name symbols', () => {
+  expect(() => {
+    const undead = new Undead('a', 'Undead'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть короче 2 символов!');
+});
+
+test('more name symbols', () => {
+  expect(() => {
+    const undead = new Undead('djdordmalscqr', 'Undead'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть длиннее 10 символов!');
+});
+
+test('check type error of personage', () => {
+  expect(() => {
+    const undead = new Undead('Alex', 'Zombie'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Неверный тип игрока!');
+});

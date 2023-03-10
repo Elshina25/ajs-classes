@@ -13,21 +13,19 @@ test('create personage', () => {
 });
 
 test('less name symbols', () => {
-  const swordsman = new Swordsman('a', 'Swordsman');
-  expect(swordsman.name.length).toBeGreaterThan(1);
+  expect(() => {
+    const swordsman = new Swordsman('a', 'Swordsman'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть короче 2 символов!');
 });
 
 test('more name symbols', () => {
-  const swordsman = new Swordsman('djdordmalscqr', 'Swordsman');
-  expect(swordsman.name.length).toBeLessThan(11);
+  expect(() => {
+    const swordsman = new Swordsman('djdordmalscqr', 'Swordsman'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть длиннее 10 символов!');
 });
 
 test('check type error of personage', () => {
-  const swordsman = new Swordsman('Alex', 'Zombie');
-  expect(swordsman.type).toBe('Swordsman');
-});
-
-test('check empty type', () => {
-  const swordsman = new Swordsman('Alex', '');
-  expect(swordsman.type).not.toBe('');
+  expect(() => {
+    const swordsman = new Swordsman('Alex', 'Zombie'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Неверный тип игрока!');
 });

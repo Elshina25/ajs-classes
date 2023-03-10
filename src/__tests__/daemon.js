@@ -13,21 +13,19 @@ test('create personage', () => {
 });
 
 test('less name symbols', () => {
-  const daemon = new Daemon('a', 'Daemon');
-  expect(daemon.name.length).toBeGreaterThan(1);
+  expect(() => {
+    const daemon = new Daemon('a', 'Daemon'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть короче 2 символов!');
 });
 
 test('more name symbols', () => {
-  const daemon = new Daemon('djdordmalscqr', 'Daemon');
-  expect(daemon.name.length).toBeLessThan(11);
+  expect(() => {
+    const daemon = new Daemon('djdordmalscqr', 'Daemon'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Имя не должно быть длиннее 10 символов!');
 });
 
 test('check type error of personage', () => {
-  const daemon = new Daemon('Alex', 'Zombie');
-  expect(daemon.type).toBe('Daemon');
-})
-
-test('check empty type', () => {
-  const daemon = new Daemon('Alex', '');
-  expect(daemon.type).not.toBe('');
-})
+  expect(() => {
+    const daemon = new Daemon('Alex', 'Zombie'); // eslint-disable-line no-unused-vars
+  }).toThrowError('Неверный тип игрока!');
+});
