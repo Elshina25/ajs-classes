@@ -4,7 +4,7 @@ export default class Bowman extends Character { // eslint-disable-line no-unused
   constructor(name = '', type = 'Bowman') {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Недопустимая длина имени!');
-    } if (!type) {
+    } if (type !== 'Bowman' || type === '') {
       throw new Error('Неверный тип игрока!');
     }
     super(name, type);
